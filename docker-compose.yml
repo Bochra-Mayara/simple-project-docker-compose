@@ -5,7 +5,7 @@ services:
     product-service:
         #build the Docker image for the product-service from a Dockerfile located in the ./product directory
         build: ./product
-        #maps a volume between the host and the container
+        #maps a volume between the host and the container:  modify the files directly on your host and see the changes immediately on container.
         #"./product": This refers to the product directory on the host machine (your local system)
         #"/usr/src/app": This is the directory inside the container where the product directory is mounted
         #create container from image
@@ -13,4 +13,13 @@ services:
             - ./product:/usr/src/app
         ports:
             - 5001:80
+    website:
+        image: php:apache
+        volumes:
+            - ./website:/var/www/html
+        ports:
+            - 5000:80
+        #ensures that the website service will start after the product-service has been started
+        depends_on:
+            - product-service
 
