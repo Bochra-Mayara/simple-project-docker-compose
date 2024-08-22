@@ -1,0 +1,7 @@
+#build image from docker file : docker build -t your-image-name .
+#"." : The dot represents the current directory where the Dockerfile is located.
+#Run container from this image : docker run --name container-name  -p host-port:container-port your-image-name
+
+
+host-port: This is the port on your host machine (your computer).
+container-port: This is the port inside the Docker container (where your application is running).
