@@ -1,0 +1,16 @@
+#the version of the Docker Compose
+version: '3'
+#The services section defines individual services (containers) that make up the application
+services:
+    product-service:
+        #build the Docker image for the product-service from a Dockerfile located in the ./product directory
+        build: ./product
+        #maps a volume between the host and the container
+        #"./product": This refers to the product directory on the host machine (your local system)
+        #"/usr/src/app": This is the directory inside the container where the product directory is mounted
+        #create container from image
+        volumes:
+            - ./product:/usr/src/app
+        ports:
+            - 5001:80
+
