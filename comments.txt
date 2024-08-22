@@ -1,0 +1,5 @@
+In a Dockerfile, mounting a volume is not directly supported.Once the image is built, everything inside the image is static and self-contained 
+=> need to rebuild image and run another container when we change code
+
+
+In Docker Compose, you can define volumes to be mounted between the host and container => Change automatically
